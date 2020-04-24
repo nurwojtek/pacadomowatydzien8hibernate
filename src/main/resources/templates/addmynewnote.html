@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+</head>
+<body>
+
+<a class="pure-button pure-button-active" href="/notes">Wróć do notatek </a>
+
+<div >
+    <form class="pure-form"  th:action="@{/notes/addnote/add}" method="get" >
+        <fieldset class="pure-group" >
+            Title:  <textarea class="pure-input-1" name="title" th:text="${note.getTitle()}" ></textarea>
+            Content:  <textarea class="pure-input-1" name="myNote" th:text="${note.getMyNote()}" ></textarea>
+            <button type="submit" class="pure-button pure-input-1-5 pure-button-primary">Dodaj</button>
+            <br><br>
+            <a class="pure-button pure-button-active" href="/notes">Wróć do notatek </a>
+            <br><br><br>
+        </fieldset>
+
+    </form>
+
+    <br>
+
+</div>
+
+
+</body>
+</html>
