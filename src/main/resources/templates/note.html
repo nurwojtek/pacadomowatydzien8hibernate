@@ -12,15 +12,15 @@
 <a class="pure-button pure-button-active" href="/notes/addnote">Dodaj Notatkę </a>
 <br><br><br>
 <div >
-    <form class="pure-form" th:each="note: ${notes} " th:object="${modNote}" th:action="@{/notes/modification}" method="get" >
+    <form class="pure-form" th:each="note: ${notes} " th:object="${modNote}" th:action="@{/notes/modification/{id}(id=${note.getId()})}" method="get" >
 
         <fieldset class="pure-group" >
-            ID:    <textarea class="pure-input-1-4" name="id" th:text="${note.getId()}" ></textarea>
+            ID:    <a name="id" th:text="${note.getId()}" ></a><br>
             Title:  <textarea class="pure-input-1" name="title" th:text="${note.getTitle()}" ></textarea>
             Content:  <textarea class="pure-input-1" name="myNote" th:text="${note.getMyNote()}" ></textarea>
-            <button type="submit" class="pure-button pure-input-1-5 pure-button-primary">Modification"</button>
-            <td><a class="pure-button pure-button-primary"
-                   th:href="@{/notes/delete/{id}(id=${note.getId()})}">Delete</a></td>
+            <button type="submit" class="pure-button pure-input-1-5 pure-button-primary">Modification</button>
+            <a class="pure-button pure-button-primary"
+                   th:href="@{/notes/delete/{id}(id=${note.getId()})}">Delete</a>
             <br><br><br>
         </fieldset>
 

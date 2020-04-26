@@ -24,9 +24,10 @@ public class NoteApi {
     }
 
 
-    @GetMapping("/modification")
-    public String modNote(@ModelAttribute Note note){
-        System.out.println("w NoteApi modNote");
+    @GetMapping("/modification/{id}")
+    public String modNote(@ModelAttribute Note note, @PathVariable Long id){
+        System.out.println("w NoteApi modNote" + note);
+        note.setId(id);
         noteList.modNote(note);
         return "redirect:/notes";
     }

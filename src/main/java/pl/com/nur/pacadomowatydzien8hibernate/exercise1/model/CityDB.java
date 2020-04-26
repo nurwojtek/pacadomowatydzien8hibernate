@@ -14,8 +14,6 @@ public class CityDB {
     private String name;
     private String woeid;
 
-//    @OneToMany(mappedBy = "city")
-//    private Set<WeatherHistory> weatherHistorySet;
     @OneToMany
     @JoinColumn(name = "cityId")
     private List<WeatherHistory> weatherHistoryList;
